@@ -1,0 +1,93 @@
+<html lang="en" dir="ltr"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <title>Main page</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>BOBO Pizza</h2>
+          <table class="table">
+            <h4>Regular pizza</h4>
+            <tr>
+              <td></td>
+              <td>Small</td>
+              <td>Large</td>
+            {% for pizza in regular_pizza %}
+            <tr>
+              <td>{{pizza.pizza_name}}</td>
+              <td>{{pizza.small_price}}</td>
+              <td>{{pizza.large_price}}</td>
+            <tr>
+            {% endfor %}
+          </table>
+          <table class="table">
+            <h4>Sicilian pizza</h4>
+            <tr>
+              <td></td>
+              <td>Small</td>
+              <td>Large</td>
+            {% for pizza in sicilian_pizza %}
+            <tr>
+              <td>{{pizza.pizza_name}}</td>
+              <td>{{pizza.small_price}}</td>
+              <td>{{pizza.large_price}}</td>
+            <tr>
+            {% endfor %}
+          </table>
+          <table class="table">
+            <h4>Subs</h4>
+            <tr>
+              <td></td>
+              <td>Small</td>
+              <td>Large</td>
+            {% for sub in subs %}
+            <tr>
+              <td>{{sub.sub_name}}</td>
+              <td>{{sub.small_price}}</td>
+              <td>{{sub.large_price}}</td>
+            <tr>
+            {% endfor %}
+          </table>
+          <table class="table">
+            <h4>Salads</h4>
+            <tr>
+              <td></td>
+              <td>Price</td>
+            {% for salad in salads %}
+            <tr>
+              <td>{{salad.salad_name}}</td>
+              <td>{{salad.price}}</td>
+            <tr>
+            {% endfor %}
+          </table>
+          <table class="table">
+            <h4>Pasta</h4>
+            <tr>
+              <td></td>
+              <td>Price</td>
+            {% for pasta in pastas %}
+            <tr>
+              <td>{{pasta.pasta_name}}</td>
+              <td>{{pasta.price}}</td>
+            <tr>
+            {% endfor %}
+          </table>
+          <table class="table">
+            <h4>Dinner platter</h4>
+            <tr>
+              <td></td>
+              <td>Small</td>
+              <td>Large</td>
+            {% for dinner in dinner_platters %}
+            <tr>
+              <td>{{dinner.dinner_name}}</td>
+              <td>{{dinner.small_price}}</td>
+              <td>{{dinner.large_price}}</td>
+            <tr>
+            {% endfor %}
+          </table>
+      </div>
+</body></html>
