@@ -18,7 +18,7 @@ from django.urls import include, path
 from register import views as v
 
 urlpatterns = [
-    path("", include("orders.urls")),
+    path("", include("menu.urls")),
     path("admin/", admin.site.urls),
     path("register/", v.register, name="register"),
     path("", include('django.contrib.auth.urls')),
