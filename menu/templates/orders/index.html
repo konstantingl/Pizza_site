@@ -13,8 +13,8 @@
             {% for pizza in regular_pizza %}
             <tr>
               <td>{{pizza.name}}</td>
-              <td>{{pizza.small_price}}<a href='/'>Add+</a></td>
-              <td>{{pizza.large_price}}<a href='/'>Add+</a></td>
+              <td>{{pizza.small_price}}<a href='{% url "update_cart" pizza.id %}'>Add+</a></td>
+              <td>{{pizza.large_price}}<a href='{% url "update_cart" pizza.id %}'>Add+</a></td>
             <tr>
             {% endfor %}
           </table>

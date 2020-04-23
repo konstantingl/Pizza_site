@@ -1,19 +1,37 @@
-Pepperoni
-Sausage
-Mushrooms
-Onions
-Ham
-Canadian Bacon
-Pineapple
-Eggplant
-Tomato & Basil
-Green Peppers
-Hamburger
-Spinach
-Artichoke
-Buffalo Chicken
-Barbecue Chicken
-Anchovies
-Black Olives
-Fresh Garlic
-Zucchini
+Regular Pizza,Cheese,12.70,17.95
+Regular Pizza,1 topping,13.70,19.95
+Regular Pizza,2 toppings,15.20,21.95
+Regular Pizza,3 toppings,16.20,23.95
+Regular Pizza,Special,17.75,25.95
+Sicilian Pizza,1 item,26.45,40.70
+Sicilian Pizza,2 items,28.45,42.70
+Sicilian Pizza,3 items,29.45,44.70
+Sicilian Pizza,Special,30.45,45.70
+Sub,Cheese,6.50,7.95
+Sub,Italian,6.50,7.95
+Sub,Ham + Cheese,6.50,7.95
+Sub,Meatball,6.50,7.95
+Sub,Tuna,6.50,7.95
+Sub,Turkey,7.50,8.50
+Sub,Chicken Parmigiana,7.50,8.50
+Sub,Eggplant Parmigiana,6.50,7.95
+Sub,Steak,6.50,7.95
+Sub,Steak + Cheese,6.95,8.50
+Sub,Sausage Peppers & Onions,8.50,0,
+Sub,Hamburger,4.60,6.95
+Sub,Cheeseburger,5.10,7.45
+Sub,Fried Chicken,6.95,8.50
+Sub,Veggie,6.95,8.50
+Pasta,Baked Ziti w/Mozzarella,6.50,0,
+Pasta,Baked Ziti w/Meatballs,8.75,0,
+Pasta,Baked Ziti w/Chicken,9.75,0,
+Salad,Garden Salad,6.25,0,
+Salad,Greek Salad,8.25,0,
+Salad,Antipasto,8.25,0,
+Salad,w/Tuna,8.25,0,
+Dinner,Garden Salad,40.00,65.00
+Dinner,Greek Salad,50.00,75.00
+Dinner,Antipasto,50.00,75.00
+Dinner,Baked Ziti,40.00,65.00
+Dinner,Meatball Parm,50.00,75.00
+Dinner,Chicken Parm,55.00,85.00

@@ -1,0 +1,25 @@
+{% extends "orders/base.html" %}
+
+{% block title %}Main{% endblock %}
+  {% block content %}
+    <div>
+      <h2>Cart</h2>
+          <table class="table">
+            <thead>
+              <th>Product name</th>
+              <th>Price</th>
+            </thead>
+            {% for product in cart.products.all %}
+            <tr>
+              <td>{{product.name}}</td>
+              <td>{{product.small_price}}</td>
+            <tr>
+            {% endfor %}
+          <tfoot>
+          <tr>
+            <td></td>
+            <td>{{cart.total}}</td>
+          </tfoot>
+          </table>
+      </div>
+{% endblock %}
