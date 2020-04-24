@@ -9,12 +9,21 @@
               <th>Regular pizza</th>
               <th>Small</th>
               <th>Large</th>
+              <th></th>
             </thead>
             {% for pizza in regular_pizza %}
             <tr>
               <td>{{pizza.name}}</td>
-              <td>{{pizza.small_price}}<a href='{% url "update_cart" pizza.id %}'>Add+</a></td>
-              <td>{{pizza.large_price}}<a href='{% url "update_cart" pizza.id %}'>Add+</a></td>
+              <td>{{pizza.small_price}}</td>
+              <td>{{pizza.large_price}}</td>
+              <td>
+                <form class='form-inline' action='{% url "update_cart" pizza.id%}'>
+                  <select class="form-control" name="size_select">
+                    <option value='small'>Small - {{pizza.small_price}}</option>
+                    <option value='large'>Large - {{pizza.large_price}}</option>
+                  </select>
+                  <input type="submit" value="Add" class="btn btn-default btn-block">
+                </form>
             <tr>
             {% endfor %}
           </table>

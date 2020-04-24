@@ -9,10 +9,10 @@
               <th>Product name</th>
               <th>Price</th>
             </thead>
-            {% for product in cart.products.all %}
+            {% for item in cart.products.all %}
             <tr>
-              <td>{{product.name}}</td>
-              <td>{{product.small_price}}</td>
+              <td>{{item.product.name}}</td>
+              <td>{{item.price}}</td>
             <tr>
             {% endfor %}
           <tfoot>
