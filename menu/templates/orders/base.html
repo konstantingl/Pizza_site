@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     {% load static %}
     <link rel="stylesheet" href="{% static 'orders/style.css' %}" type="text/css">
+    <script type="text/javascript" src={% static "orders/js/index.js" %}></script>
     <meta charset="utf-8">
     <title>{% block title %}My amazing site{% endblock %}</title>
           <nav class="navbar navbar-inverse">
@@ -15,8 +16,8 @@
             <a class="navbar-brand" href="#">BOBO PIZZA</a>
           </div>
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Main</a></li>
-            <li><a href="/cart">Cart</a></li>
+            <li id='menu_switch1'><a href="/">Main</a></li>
+            <li id='menu_switch2'><a href="/cart">Cart</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
