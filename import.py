@@ -10,13 +10,10 @@ import django
 
 django.setup()
 
-from menu.models import product
+from menu.models import topping
 
-data = csv.reader(open("/Users/konstantingolubtsov/Desktop/Personal/Development education/CS50 Web/project3/project3/menu.csv"),delimiter = ',')
+data = csv.reader(open("/Users/konstantingolubtsov/Desktop/Personal/Development education/CS50 Web/project3/project3/w_items/topings.csv"),delimiter = ',')
 for row in data:
-    item = product()
-    item.category = row[0]
-    item.name = row[1]
-    item.small_price = row[2]
-    item.large_price = row[3]
+    item = topping()
+    item.topping_name = row[0]
     item.save()

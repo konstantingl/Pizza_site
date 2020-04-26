@@ -1,5 +1,6 @@
 from django.db import models
 from menu.models import product
+from account.models import Profile
 
 # Create your models here.
 class cart_item(models.Model):
@@ -13,6 +14,7 @@ class cart_item(models.Model):
         return f"{self.product} {self.price}"
 
 class cart(models.Model):
+    owner = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
     products = models.ManyToManyField(cart_item, null=True, blank=True)
     total = models.DecimalField(max_digits=20, decimal_places=2, default = 0.00)
 
