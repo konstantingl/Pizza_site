@@ -1,7 +1,33 @@
 {% extends "orders/base.html" %}
-
+{% load static %}
 {% block title %}Main{% endblock %}
+{% block head %}
+<script type="text/javascript" src={% static "orders/js/item_details_block.js" %}></script>
+{% endblock %}
   {% block content %}
+  <div id="overlay">
+  <div id="details_block" class="panel panel-default">
+    <div class="panel-body" id='details_header'>
+      <a>Choose size and toppings</a>
+      <span class="glyphicon glyphicon-remove-circle" onclick="off()"></span>
+    </div>
+    <div class="panel-footer">
+      <form class='form-inline' id="details_form" method="POST">{% csrf_token %}
+        {% for topping in toppings %}
+        <div class="checkbox">
+          <label><input type="checkbox" class="tops_select" value="{{ topping.topping_name }}">{{topping.topping_name}}</label>
+        </div>
+        {% endfor %}
+        <h5>Select size</h5>
+        <select class="form-control" id="size_select" name="size_select">
+          <option value='small'>Small</option>
+          <option value='large'>Large</option>
+        </select>
+        <input type="submit" value="Add to cart" class="btn btn-default btn-block">
+      </form>
+    </div>
+  </div>
+  </div>
     <div>
       <h2>Menu</h2>
           <table class="table">
@@ -13,16 +39,12 @@
             </thead>
             {% for pizza in regular_pizza %}
             <tr>
-              <td>{{pizza.name}}</td>
+              <td id="item_name">{{pizza.name}}</td>
               <td>{{pizza.small_price}}</td>
               <td>{{pizza.large_price}}</td>
               <td>
-                <form class='form-inline' action='{% url "update_cart" pizza.id%}'>
-                  <select class="form-control" name="size_select">
-                    <option value='small'>Small - {{pizza.small_price}}</option>
-                    <option value='large'>Large - {{pizza.large_price}}</option>
-                  </select>
-                  <input type="submit" value="Add" class="btn btn-default btn-block">
+                <form class='form-inline'>
+                  <input id="add_button" name='{{pizza.name}}' value="Add" class="btn btn-default btn-block">
                 </form>
             <tr>
             {% endfor %}

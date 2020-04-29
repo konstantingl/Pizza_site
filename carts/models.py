@@ -2,6 +2,7 @@ from django.db import models
 from menu.models import product
 from account.models import Profile
 
+
 # Create your models here.
 class cart_item(models.Model):
     cart_one = models.ForeignKey('cart', on_delete=models.PROTECT)
@@ -9,6 +10,9 @@ class cart_item(models.Model):
     quantity = models.IntegerField(default=1)
     price = models.DecimalField(max_digits=20, decimal_places=2, default = 0.00)
     line_total = models.DecimalField(max_digits=20, decimal_places=2, default = 0.00)
+    notes = models.CharField(max_length = 128, null=True, blank=True)
+    size = models.CharField(max_length = 5, null=True, blank=True)
+
 
     def __str__(self):
         return f"{self.product} {self.price}"

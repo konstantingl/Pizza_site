@@ -1,3 +1,34 @@
+#details_block{
+  display: none;
+  position: absolute;
+  z-index: 1;
+  min-width: 300px;
+}
+
+#overlay{
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+#details_header span{
+  cursor: pointer;
+}
+
+#details_header{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .table td{
   width: 25%;
 }
@@ -6,10 +37,24 @@
   padding-left: 5px;
 }
 
-.table form{
+#details_form{
   display: flex;
+  flex-direction: column;
 }
+
+#details_form div{
+  margin-bottom:2px;
+}
+
+#details_form div input{
+  margin-right:2px;
+}
+
+#details_form select{
+  margin-top:5px;
+}
+
 input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].btn-block {
     width: 100%;
-    margin-left: 5px;
+    margin-top: 15px;
 }
