@@ -6,19 +6,29 @@
       <h2>Cart</h2>
           <table class="table">
             <thead>
-              <th>Product name</th>
+              <th id='product_column'>Product name</th>
               <th>Price</th>
+              <th></th>
             </thead>
             {% for item in cart.products.all %}
             <tr>
-              <td>{{item.product.name}}</td>
-              <td>{{item.price}}</td>
+              <td>{{item.product.name}} {{item.product.category}}
+                <li>Size: {{item.size}}</li>
+                {% if item.notes %}
+                {% if item.product.category == 'Sub'%}
+                <li>Extras: {{item.notes}}</li>
+                {% else %}<li>Toppings: {{item.notes}}</li>{% endif %}{% endif %}</td>
+              <td class=''>{{item.price}}</td>
+              <td><a href='{% url "remove_from_cart" item.id %}'</a>Remove</td>
             <tr>
             {% endfor %}
           <tfoot>
           <tr>
             <td></td>
-            <td>{{cart.total}}</td>
+            <td><b>Total: {{cart.total}}</b></td>
+            {% if cart.products.all %}
+            <td><button class='btn btn-lg btn-success' value='Proceed order'>Proceed order</button></td>
+            {% else %}<td><button class='btn btn-lg btn-success' value='Proceed order' disabled>Proceed order</button></td>{% endif %}
           </tfoot>
           </table>
       </div>

@@ -5,6 +5,11 @@
   min-width: 300px;
 }
 
+.toppings , .extras {
+  display: none;
+  flex-direction: column;
+}
+
 #overlay{
   position: fixed;
   display: none;
@@ -57,4 +62,12 @@
 input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].btn-block {
     width: 100%;
     margin-top: 15px;
+}
+
+#product_column{
+  width: 75%;
+}
+
+.table>tbody>tr>td{
+  vertical-align: middle ! important;
 }

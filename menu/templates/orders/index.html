@@ -13,17 +13,27 @@
     </div>
     <div class="panel-footer">
       <form class='form-inline' id="details_form" method="POST">{% csrf_token %}
+        <div class='toppings'>
         {% for topping in toppings %}
-        <div class="checkbox">
-          <label><input type="checkbox" class="tops_select" value="{{ topping.topping_name }}">{{topping.topping_name}}</label>
-        </div>
+          <div class="checkbox">
+            <label><input type="checkbox" class="tops_select" value="{{ topping.topping_name }}">{{topping.topping_name}}</label>
+          </div>
         {% endfor %}
+        </div>
+        <div class='extras'>
+        {% for extra in subs_extras %}
+          <div class="checkbox">
+            <label><input type="checkbox" class="extra_select" value="{{ extra.extra_name }}">{{ extra.extra_name }} +{{extra.price}}</label>
+          </div>
+        {% endfor %}
+        </div>
         <h5>Select size</h5>
         <select class="form-control" id="size_select" name="size_select">
           <option value='small'>Small</option>
-          <option value='large'>Large</option>
+          <option id='large_size' value='large'>Large</option>
         </select>
         <input type="submit" value="Add to cart" class="btn btn-default btn-block">
+        <p id='details_error' class="text-warning"></p>
       </form>
     </div>
   </div>
@@ -39,13 +49,13 @@
             </thead>
             {% for pizza in regular_pizza %}
             <tr>
-              <td id="item_name">{{pizza.name}}</td>
+              <td>{{pizza.name}}</td>
               <td>{{pizza.small_price}}</td>
               <td>{{pizza.large_price}}</td>
               <td>
                 <form class='form-inline'>
-                  <input id="add_button" name='{{pizza.name}}' value="Add" class="btn btn-default btn-block">
-                </form>
+                  <input id="add_button" name='{{pizza.name}},{{pizza.category}}' value="Add" class="btn btn-default btn-block">
+                </form></td>
             <tr>
             {% endfor %}
           </table>
@@ -54,12 +64,17 @@
             <th>Sicilian pizza</th>
             <th>Small</th>
             <th>Large</th>
+            <th></th>
           </thead>
           {% for pizza in sicilian_pizza %}
           <tr>
             <td>{{pizza.name}}</td>
-            <td>{{pizza.small_price}}<a href='/'>Add+</a></td>
-            <td>{{pizza.large_price}}<a href='/'>Add+</a></td>
+            <td>{{pizza.small_price}}</td>
+            <td>{{pizza.large_price}}</td>
+            <td>
+              <form class='form-inline'>
+                <input id="add_button" name='{{pizza.name}},{{pizza.category}}' value="Add" class="btn btn-default btn-block">
+              </form></td>
           <tr>
           {% endfor %}
           </table>
@@ -68,12 +83,17 @@
               <th>Subs</th>
               <th>Small</th>
               <th>Large</th>
+              <th></th>
             </thead>
             {% for sub in subs %}
             <tr>
               <td>{{sub.name}}</td>
               <td>{{sub.small_price}}</td>
               <td>{{sub.large_price}}</td>
+              <td>
+                <form class='form-inline'>
+                  <input id="add_button" name='{{sub.name}},{{sub.category}}' value="Add" class="btn btn-default btn-block">
+                </form></td>
             <tr>
             {% endfor %}
           </table>
@@ -81,11 +101,17 @@
             <thead>
               <th>Salads</th>
               <th>Price</th>
+              <th></th>
             </thead>
             {% for salad in salads %}
             <tr>
               <td>{{salad.name}}</td>
               <td>{{salad.small_price}}</td>
+              <td></td>
+              <td>
+                <form class='form-inline'>
+                  <input id="add_button" name='{{salad.name}},{{salad.category}}' value="Add" class="btn btn-default btn-block">
+                </form></td>
             <tr>
             {% endfor %}
           </table>
@@ -93,11 +119,17 @@
             <thead>
               <th>Pasta</th>
               <th>Price</th>
+              <th></th>
             </thead>
             {% for pasta in pastas %}
             <tr>
               <td>{{pasta.name}}</td>
               <td>{{pasta.small_price}}</td>
+              <td></td>
+              <td>
+                <form class='form-inline'>
+                  <input id="add_button" name='{{pasta.name}},{{pasta.category}}' value="Add" class="btn btn-default btn-block">
+                </form></td>
             <tr>
             {% endfor %}
           </table>
@@ -112,6 +144,10 @@
               <td>{{dinner.name}}</td>
               <td>{{dinner.small_price}}</td>
               <td>{{dinner.large_price}}</td>
+              <td>
+                <form class='form-inline'>
+                  <input id="add_button" name='{{dinner.name}},{{dinner.category}}' value="Add" class="btn btn-default btn-block">
+                </form></td>
             <tr>
             {% endfor %}
           </table>
