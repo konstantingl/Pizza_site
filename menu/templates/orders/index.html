@@ -8,8 +8,8 @@
   <div id="overlay">
   <div id="details_block" class="panel panel-default">
     <div class="panel-body" id='details_header'>
-      <a>Choose size and toppings</a>
-      <span class="glyphicon glyphicon-remove-circle" onclick="off()"></span>
+      <div id='a'><a>Choose size and toppings</a></div>
+      <div id='b'><span class="glyphicon glyphicon-remove-circle" onclick="off()"></span></div>
     </div>
     <div class="panel-footer">
       <form class='form-inline' id="details_form" method="POST">{% csrf_token %}
@@ -30,7 +30,7 @@
         <h5>Select size</h5>
         <select class="form-control" id="size_select" name="size_select">
           <option value='small'>Small</option>
-          <option id='large_size' value='large'>Large</option>
+          <option id='large_size' value='large' disabled='false'>Large</option>
         </select>
         <input type="submit" value="Add to cart" class="btn btn-default btn-block">
         <p id='details_error' class="text-warning"></p>

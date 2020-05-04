@@ -1,7 +1,44 @@
 {% extends "orders/base.html" %}
-
-{% block title %}Main{% endblock %}
+{% load static %}
+{% block title %}Cart{% endblock %}
+{% block head %}
+<script type="text/javascript" src={% static "orders/js/order_confirmation.js" %}></script>
+{% endblock %}
   {% block content %}
+  <div id="overlay_cart">
+    <div id="details_block" class="panel panel-default">
+      <div class="panel-body" id='details_header'>
+        <div id='a'><a>Specify order details</a></div>
+        <div id='b'><span class="glyphicon glyphicon-remove-circle" onclick="off()"></span></div>
+      </div>
+      <div id="place_order_form" class="panel-footer">
+        <form id="details_form_proceed">
+          <div class="trigger"></div>
+          <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          	 viewBox="0 0 37 37" style="display:none;enable-background:new 0 0 37 37;width:40px;" xml:space="preserve">
+          <path class="circ path" style="fill:none;stroke:#000;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;" d="
+          	M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z"
+          	/>
+          <polyline class="tick path" style="fill:none;stroke:#FF0000;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;" points="
+          	11.6,20 15.9,24.2 26.4,13.8 "/>
+          </svg>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input id="user_name" type="text" class="form-control" name="user_name" placeholder="Name and Surname">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <input id="address" type="text" class="form-control" name="address" placeholder="Address">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">Details</span>
+            <input id="msg" type="text" class="form-control" name="msg" placeholder="Additional Info">
+          </div>
+          <button id="place_order" class='btn btn-lg btn-success' value='Proceed order'>Place order</button>
+        </form>
+      </div>
+    </div>
+  </div>
     <div>
       <h2>Cart</h2>
           <table class="table">
@@ -12,7 +49,7 @@
             </thead>
             {% for item in cart.products.all %}
             <tr>
-              <td>{{item.product.name}} {{item.product.category}}
+              <td>{{item.product.name}} ({{item.product.category}})
                 <li>Size: {{item.size}}</li>
                 {% if item.notes %}
                 {% if item.product.category == 'Sub'%}
@@ -27,7 +64,7 @@
             <td></td>
             <td><b>Total: {{cart.total}}</b></td>
             {% if cart.products.all %}
-            <td><button class='btn btn-lg btn-success' value='Proceed order'>Proceed order</button></td>
+            <td><button id="order_confirm" class='btn btn-lg btn-success' value='Proceed order'>Proceed order</button></td>
             {% else %}<td><button class='btn btn-lg btn-success' value='Proceed order' disabled>Proceed order</button></td>{% endif %}
           </tfoot>
           </table>

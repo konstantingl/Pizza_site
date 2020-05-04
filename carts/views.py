@@ -30,6 +30,7 @@ def update_cart(request):
     # Data processing from http request with item to add from user
     data = request.POST.copy()
     name = data.get('product_selected')
+    print(name)
     tops = data.get('tops_selected')
     size = data.get('size')
     extras_names = data.get('extra_selected')
@@ -44,6 +45,7 @@ def update_cart(request):
     # Create a cart item with details about size, price, notes
     try:
         item = product.objects.get(name=name)
+        print(item)
     except ObjectDoesNotExist:
         HttpResponse("Error!")
 

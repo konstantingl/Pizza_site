@@ -4,17 +4,27 @@ document.querySelectorAll('table input').forEach(function(input) {
 
   // Details block appear
   input.onclick = () => {
+    // document.querySelector('#large_size').style.display = "none";
     let inputData = input.name.split(',', 2);
     localStorage.setItem('the_name', inputData[0]);
     var category = inputData[1];
     console.log(inputData);
+    document.querySelector('#large_size').setAttribute("disabled", false);
     if (category=='Regular Pizza' || category=='Sicilian Pizza'){
       document.querySelector('.toppings').style.display = "flex";
       document.querySelector('.extras').style.display = "none";
+      document.querySelector('#large_size').removeAttribute("disabled");
     }
     else if (category=='Sub'){
       document.querySelector('.extras').style.display = "flex";
       document.querySelector('.toppings').style.display = "none";
+      document.querySelector('#large_size').removeAttribute("disabled");
+    }
+    else if (category=='Salad' || category=='Pasta'){
+      document.querySelector('#large_size').setAttribute("disabled", true);
+    }
+    else if (category=='Dinner'){
+      document.querySelector('#large_size').removeAttribute("disabled");
     }
     document.querySelector('#details_block').style.display = "block";
     document.querySelector('#overlay').style.display = "flex";
